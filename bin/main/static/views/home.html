@@ -1,0 +1,91 @@
+
+    <!-- Top Banner
+    ================================================= -->
+      <section id="banner" style="margin-top:80px;">
+         <div class="container">
+
+        <!-- Sign Up Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showRegister" style="display:none;">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"REGISTER_TEXT" | translate}}</p>
+                  <form ng-submit="doRegister()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'REGISTER_USERNAME' | translate }}" ng-model="registerData.username">
+                     </fieldset>
+                     <fieldset class="form-group">
+                      <p ng-if="showPasswordError" style="color:red">{{passwordErrorMsg}}</p>
+                        <input type="password" class="form-control" id="password" placeholder="{{ 'REGISTER_PASSWORD' | translate }}"  ng-model="registerData.password">
+                     </fieldset>
+                     <fieldset class="form-group">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="{{ 'REGISTER_CONFIRM_PASSWORD' | translate }}" ng-model="registerData.confirmPassword">
+                     </fieldset>
+                      <p>{{"REGISTER_TERMS_ACCOUNT" | translate}}</p>
+                     <button class="btn-secondary" ng-if="!registeringNow" type="submit">{{ "REGISTER_BUTTON" | translate }}</button>
+                    <p ng-if="registeringNow">{{registerMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showRegisteringSpinner">
+                  </form>
+                 
+                  <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+		          <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+		         
+               </div>
+               <a ng-click="changeForm(false, true, false)" style="cursor: pointer">{{ "REGISTER_YOU_HAVE_ACCOUNT" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Sign Up Form End -->
+
+       <!-- Login Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showLogin"  style="display:none;">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"LOGIN_TEXT" | translate}}</p>
+                  <form ng-submit="doLogin()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'LOGIN_USERNAME' | translate }}" ng-model="loginData.username">
+                     </fieldset>
+                     <fieldset class="form-group">
+                      <p ng-if="showPasswordError" style="color:red">{{passwordErrorMsg}}</p>
+                        <input type="password" class="form-control" id="password" placeholder="{{ 'LOGIN_PASSWORD' | translate }}"  ng-model="loginData.password">
+                     </fieldset>
+                     <a ng-click="changeForm(false, false, true)" style="cursor: pointer">{{ "FORGOT_PASSWORD" | translate }}</a>
+                     <button class="btn-secondary" ng-if="!loginNow" type="submit">{{ "LOGIN_BUTTON" | translate }}</button>
+                    <p ng-if="loginNow">{{loginMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showLoginSpinner">
+                  </form>
+                 
+                  <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+       			  <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+         
+               </div>
+               <a ng-click="changeForm(true, false, false)" style="cursor: pointer">{{ "LOGIN_NOT_HAVE_ACCOUNT" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Log in Form End -->
+
+            <!-- Forgot Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showForgot"  style="display:none;">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"LOGIN_TEXT" | translate}}</p>
+                  <form ng-submit="doForgot()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'LOGIN_USERNAME' | translate }}" ng-model="forgotData.username">
+                     </fieldset>
+                     <button class="btn-secondary" ng-if="!forgotNow" type="submit">{{ "FORGOT_BUTTON" | translate }}</button>
+                   </form>
+                 
+                  <p ng-if="forgotNow">{{forgotMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showForgotSpinner">
+               </div>
+               <a ng-click="changeForm(false, true, false)" style="cursor: pointer">{{ "FORGOT_TO_LOGIN" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Log in Form End -->
+

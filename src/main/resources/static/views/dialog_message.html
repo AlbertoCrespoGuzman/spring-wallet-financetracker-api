@@ -1,0 +1,16 @@
+    <div class="ngdialog-message">
+        <div class="">
+            <h3>{{"MESSAGE_TITLE" | translate}} </h3>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">
+            <center>
+                <p>{{message}}</p>
+            </center>
+        </div>
+        <button ng-if="!isMobileWithApp" class="btn btn-primary" ng-click="doRefresh()">{{"ACCEPT_BUTTON"| translate}}</button>
+        <a ng-if="isMobileWithApp" href="mydefaultapp://www.example.com/gizmos" class="btn btn-primary">{{"ACCEPT_BUTTON"| translate}}</a>
+        <div>
+
+        </div>
+    </div>
